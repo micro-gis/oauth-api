@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/micro-gis/oauth-api/src/domain/users"
 	errors "github.com/micro-gis/oauth-api/src/utils/errors_util"
-	"github.com/federicoleon/go-httpclient/gohttp"
+	"github.com/yossefaz/go-http-client/gohttp"
 	"time"
 )
 
