@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/federicoleon/go-httpclient/gohttp_mock"
+	"github.com/yossefaz/go-http-client/gohttp_mock"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"os"
