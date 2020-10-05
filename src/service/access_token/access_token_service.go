@@ -4,7 +4,7 @@ import (
 	"github.com/micro-gis/oauth-api/src/domain/access_token"
 	"github.com/micro-gis/oauth-api/src/repository/db"
 	"github.com/micro-gis/oauth-api/src/repository/rest"
-	"github.com/micro-gis/oauth-api/src/utils/errors_util"
+	errors "github.com/micro-gis/utils/rest_errors"
 	"strings"
 )
 
