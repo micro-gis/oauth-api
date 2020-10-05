@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	atDomain "github.com/micro-gis/oauth-api/src/domain/access_token"
 	atService "github.com/micro-gis/oauth-api/src/service/access_token"
-	errors "github.com/micro-gis/oauth-api/src/utils/errors_util"
+	errors "github.com/micro-gis/utils/rest_errors"
 	"net/http"
 )
 
