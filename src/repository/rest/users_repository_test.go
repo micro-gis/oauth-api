@@ -1,8 +1,8 @@
 package rest
 
 import (
-	"github.com/yossefaz/go-http-client/gohttp_mock"
 	"github.com/stretchr/testify/assert"
+	"github.com/yossefaz/go-http-client/gohttp_mock"
 	"net/http"
 	"os"
 	"testing"
