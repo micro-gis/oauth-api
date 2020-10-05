@@ -2,7 +2,7 @@ package access_token
 
 import (
 	"fmt"
-	errors "github.com/micro-gis/oauth-api/src/utils/errors_util"
+	errors "github.com/micro-gis/utils/rest_errors"
 	"github.com/micro-gis/oauth-api/src/utils/crypto_utils"
 	"strings"
 	"time"
