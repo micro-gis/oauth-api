@@ -33,7 +33,7 @@ type AccessTokenRequest struct {
 	ClientSecret string `json:"client_secret"`
 }
 
-func (at *AccessTokenRequest) Validate() *errors.RestErr {
+func (at *AccessTokenRequest) Validate() errors.RestErr {
 	switch at.GrantType {
 	case grantTypePassword:
 		break
@@ -49,7 +49,7 @@ func (at *AccessTokenRequest) Validate() *errors.RestErr {
 	return nil
 }
 
-func (at *AccessToken) Validate() *errors.RestErr {
+func (at *AccessToken) Validate() errors.RestErr {
 	at.AccessToken = strings.TrimSpace(at.AccessToken)
 	if at.AccessToken == "" {
 		return errors.NewBadRequestError("invalid access token id")
