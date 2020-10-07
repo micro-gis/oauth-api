@@ -15,7 +15,7 @@ var (
 )
 
 func init() {
-	usersRestClient = gohttp.NewBuilder().Build()
+	usersRestClient = gohttp.NewBuilder().SetConnectionTimeout(Timeout).Build()
 }
 
 type RestUsersRepository interface {
@@ -39,8 +39,7 @@ func (r *userRepository) LoginUser(email string, password string) (*users.User, 
 	}
 
 	if response.StatusCode > 299 {
-		var restErr errors.RestErr
-		err := json.Unmarshal(response.Bytes(), &restErr)
+		restErr, err :=errors.NewRestErrorFromBytes(response.Bytes())
 		if err != nil {
 			return nil, errors.NewInternalServerError("invalid error interface when trying to login user", err)
 		}
