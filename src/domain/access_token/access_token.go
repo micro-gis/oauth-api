@@ -60,8 +60,8 @@ func (at *AccessToken) Validate() errors.RestErr {
 	if at.ClientId <= 0 {
 		return errors.NewBadRequestError("invalid client id")
 	}
-	if at.Expires <= 0 {
-		return errors.NewBadRequestError("invalid expiration time")
+	if at.IsExpired() {
+		return errors.NewBadRequestError("access token expired")
 	}
 
 	return nil
