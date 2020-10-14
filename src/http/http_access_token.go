@@ -11,6 +11,7 @@ import (
 type AccessTokenHandler interface {
 	GetById(c *gin.Context)
 	Create(c *gin.Context)
+	Delete(c *gin.Context)
 }
 
 type accessTokenHandler struct {
@@ -48,4 +49,19 @@ func (handler *accessTokenHandler) Create(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusCreated, accessToken)
+}
+
+func (handler *accessTokenHandler) Delete(c *gin.Context) {
+	accessTokenId := c.Param("access_token_id")
+	accessToken, err := handler.service.GetById(accessTokenId)
+	if err != nil {
+		c.JSON(err.Status(), err)
+		return
+	}
+	delErr := handler.service.DeleteUserTokens(*accessToken)
+	if delErr != nil {
+		c.JSON(delErr.Status(), delErr)
+		return
+	}
+	c.Status(http.StatusNoContent)
 }
