@@ -29,7 +29,7 @@ services:
           echo 'Waiting for seed node ...';
           sleep 2;
         done;
-        docker-entrypoint.sh cassandra -f;
+        ./entrypoint-wrap.sh cassandra -f;
       "
     environment:
       - CASSANDRA_SEEDS=cassandra-main
